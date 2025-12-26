@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Result</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+        
+        .name {
+            color: #667eea;
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .score-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 10px solid;
+            border-color: {{ color }};
+        }
+        
+        .score-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: {{ color }};
+        }
+        
+        .score-label {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .result-card {
+            background: #f5f5f5;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .result-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .result-value {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .decision {
+            color: {{ color }};
+        }
+        
+        .back-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+        
+        .back-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Credit Score Result</h1>
+        <p class="name">{{ name }}</p>
+        
+        <div class="score-circle">
+            <div class="score-number">{{ credit_score }}</div>
+            <div class="score-label">Credit Score</div>
+        </div>
+        
+        <div class="result-card">
+            <div class="result-label">Risk Category</div>
+            <div class="result-value">{{ risk }}</div>
+        </div>
+        
+        <div class="result-card">
+            <div class="result-label">Decision</div>
+            <div class="result-value decision">{{ decision }}</div>
+        </div>
+        
+        <a href="/" class="back-button">New Application</a>
+    </div>
+</body>
+</html>
