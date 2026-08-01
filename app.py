@@ -30,38 +30,38 @@ try:
 
     # Load model
     model = joblib.load(model_path)
-    print(f"✅ Model loaded: {type(model).__name__}")
+    print(f" Model loaded: {type(model).__name__}")
 
     # Load label encoder
     label_encoder = joblib.load(encoder_path)
-    print(f"✅ Label encoder loaded")
+    print(f" Label encoder loaded")
 
     # Load categorical encoders
     cat_encoders = joblib.load(cat_encoder_path)
-    print(f"✅ Categorical encoders loaded")
+    print(f" Categorical encoders loaded")
 
     print("=" * 50)
-    print("✅ ALL MODELS LOADED SUCCESSFULLY!")
+    print(" ALL MODELS LOADED SUCCESSFULLY!")
     print("=" * 50)
 
 except ModuleNotFoundError as e:
-    print(f"\n❌ ERROR: Missing Python package!")
+    print(f"\n ERROR: Missing Python package!")
     print(f"Error: {e}")
-    print("\n💡 SOLUTION: Install the missing package:")
+    print("\n SOLUTION: Install the missing package:")
     print("   pip install xgboost")
     sys.exit(1)
 
 except FileNotFoundError as e:
-    print(f"\n❌ ERROR: Model files not found!")
+    print(f"\n ERROR: Model files not found!")
     print(f"Error: {e}")
-    print("\n💡 SOLUTION: Make sure model files are in 'models/' folder:")
+    print("\n SOLUTION: Make sure model files are in 'models/' folder:")
     print("   - credit_scoring_model.pkl")
     print("   - credit_score_encoder.pkl")
     print("   - cat_encoders.pkl")
     sys.exit(1)
 
 except Exception as e:
-    print(f"\n❌ ERROR: Could not load models!")
+    print(f"\n ERROR: Could not load models!")
     print(f"Error type: {type(e).__name__}")
     print(f"Error message: {e}")
     sys.exit(1)
@@ -208,7 +208,7 @@ def predict():
 
     except Exception as e:
         error_msg = f"Prediction error: {str(e)}"
-        print(f"❌ {error_msg}")
+        print(f" {error_msg}")
         return render_template('error.html', error=error_msg), 400
 
 
@@ -233,7 +233,7 @@ def api_stats():
 
 if __name__ == '__main__':
     print("\n" + "=" * 50)
-    print("🚀 Starting Flask application...")
-    print("🌐 Open browser: http://127.0.0.1:5000")
+    print(" Starting Flask application...")
+    print(" Open browser: http://127.0.0.1:5000")
     print("=" * 50 + "\n")
     app.run(debug=True, host='0.0.0.0', port=5000)
