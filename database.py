@@ -54,7 +54,7 @@ def init_database():
 
     conn.commit()
     conn.close()
-    print("✅ Database initialized!")
+    print(" Database initialized!")
 
 
 def save_application(data):
@@ -86,7 +86,7 @@ def save_application(data):
 
     conn.commit()
     conn.close()
-    print("✅ Application saved to database!")
+    print(" Application saved to database!")
 
 
 def get_all_applications():
